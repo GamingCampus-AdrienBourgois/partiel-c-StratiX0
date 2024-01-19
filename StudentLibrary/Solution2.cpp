@@ -15,7 +15,7 @@ float Solution2::GetBalance(const std::string& accountName)
     std::string word, filename;
     bool deposit, withdraw;
 
-    file.open("BankAccount" + accountName + ".txt");
+    file.open("BankAccount/" + accountName + ".txt");
 
     while (file >> word)
     {
