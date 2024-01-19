@@ -13,12 +13,20 @@ float Solution2::GetBalance(const std::string& accountName)
     float bank = 0.f;
     std::fstream file;
     std::string word, filename;
-    bool deposit, withdraw;
+    bool deposit = false, withdraw = false;
 
     file.open("BankAccount/" + accountName + ".txt");
 
     while (file >> word)
     {
+        if (deposit)
+        {
+            bank += std::stof(word);
+        }
+        if (withdraw)
+        {
+            bank -= std::stof(word);
+        }
         withdraw = false;
         deposit = false;
         if (word == "DEPOSIT")
@@ -31,14 +39,6 @@ float Solution2::GetBalance(const std::string& accountName)
         {
             withdraw = true;
             deposit = false;
-        }
-        if (deposit)
-        {
-            bank += std::stof(word);
-        }
-        if (withdraw)
-        {
-            bank -= std::stof(word);
         }
     }
     file.close();
