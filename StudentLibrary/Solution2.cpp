@@ -21,6 +21,8 @@ float Solution2::GetBalance(const std::string& accountName)
 
     while (file >> word)
     {
+        withdraw = false;
+        deposit = false;
         if (word == "DEPOSIT")
         {
             deposit = true;
@@ -40,13 +42,8 @@ float Solution2::GetBalance(const std::string& accountName)
         {
             bank -= std::stof(word);
         }
-        else
-        {
-            withdraw = false;
-            deposit = false;
-        }
-
     }
+    file.close();
 	return bank;
 }
 
