@@ -6,38 +6,44 @@
 
 float Solution1::ConvertTemperature(float _value, TemperatureUnits _from, TemperatureUnits _to)
 {
-	switch (_from)
+
+	if (_from == TemperatureUnits::KELVIN)
 	{
-	case TemperatureUnits::KELVIN:
-		switch (_to)
+		if (_to == TemperatureUnits::FAHRENHEIT)
 		{
-		case TemperatureUnits::FAHRENHEIT:
-			_value = 9/5 * (_value - 273.15) + 32;
-		case TemperatureUnits::CELSIUS:
+			_value = 9 / 5 * (_value - 273.15) + 32;
+		}
+		if (_to == TemperatureUnits::CELSIUS)
+		{
 			_value = _value - 273.15;
 		}
-	case TemperatureUnits::CELSIUS:
-		switch (_to)
+	}
+
+	if (_from == TemperatureUnits::CELSIUS)
+	{
+		if (_to == TemperatureUnits::FAHRENHEIT)
 		{
-		case TemperatureUnits::FAHRENHEIT:
-			_value = 9 / 5 * (_value) + 32;
-		case TemperatureUnits::KELVIN:
+			_value = 9 / 5 * (_value)+32;
+		}
+		if (_to == TemperatureUnits::KELVIN)
+		{
 			_value = _value + 273;
 		}
-	case TemperatureUnits::FAHRENHEIT:
-		switch (_to)
+	}
+
+	if (_from == TemperatureUnits::FAHRENHEIT)
+	{
+		if (_to == TemperatureUnits::CELSIUS)
 		{
-		case TemperatureUnits::CELSIUS:
 			_value = 5 / 9 * (_value - 32);
-		case TemperatureUnits::KELVIN:
+		}
+		if (_to == TemperatureUnits::KELVIN)
+		{
 			_value = 5 / 9 * (_value - 32) + 273;
 		}
-	default:
-		return -1.0f;
 	}
-	
+	return -1.0f;
 
-	return _value;
 }
 
 #endif
