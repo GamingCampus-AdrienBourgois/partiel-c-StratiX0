@@ -12,9 +12,9 @@ float Solution1::ConvertTemperature(float _value, TemperatureUnits _from, Temper
 		switch (_to)
 		{
 		case TemperatureUnits::FAHRENHEIT:
-			_value = 9/5 * (_value - 273) + 32;
+			_value = 9/5 * (_value - 273.15) + 32;
 		case TemperatureUnits::CELSIUS:
-			_value = _value - 273;
+			_value = _value - 273.15;
 		}
 	case TemperatureUnits::CELSIUS:
 		switch (_to)
@@ -32,6 +32,8 @@ float Solution1::ConvertTemperature(float _value, TemperatureUnits _from, Temper
 		case TemperatureUnits::KELVIN:
 			_value = 5 / 9 * (_value - 32) + 273;
 		}
+	default:
+		return -1.0f;
 	}
 	
 
