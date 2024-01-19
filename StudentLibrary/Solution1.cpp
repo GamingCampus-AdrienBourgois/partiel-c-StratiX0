@@ -11,7 +11,7 @@ float Solution1::ConvertTemperature(float _value, TemperatureUnits _from, Temper
 	{
 		if (_to == TemperatureUnits::FAHRENHEIT)
 		{
-			_value = 9 / 5 * (_value - 32) + 273.15;
+			_value = (_value - 273.15) * 9 / 5 + 32;
 		}
 		if (_to == TemperatureUnits::CELSIUS)
 		{
@@ -35,7 +35,7 @@ float Solution1::ConvertTemperature(float _value, TemperatureUnits _from, Temper
 	{
 		if (_to == TemperatureUnits::CELSIUS)
 		{
-			_value = 5 / 9 * (_value - 32);
+			_value = (_value - 32) * 5 / 9;
 		}
 		if (_to == TemperatureUnits::KELVIN)
 		{
