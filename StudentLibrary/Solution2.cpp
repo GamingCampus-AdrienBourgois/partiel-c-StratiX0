@@ -1,6 +1,8 @@
 #include "Solution2.h"
 
 #include <ostream>
+#include <iostream>
+#include <fstream>
 
 // Don't forget to enable the exercise in the SudentConfiguration.h file !
 #include "StudentConfiguration.h"
@@ -8,7 +10,44 @@
 
 float Solution2::GetBalance(const std::string& accountName)
 {
-	return -1.0f;
+    float bank;
+    std::fstream file;
+    std::string word, t, q, filename;
+    bool deposit, withdraw;
+
+    filename = accountName;
+
+    file.open(filename.c_str());
+
+    while (file >> word)
+    {
+        if (word == "DEPOSIT")
+        {
+            deposit = true;
+            withdraw = false;
+
+        }
+        if (word == "WITHDRAW")
+        {
+            withdraw = true;
+            deposit = false;
+        }
+        if (deposit)
+        {
+            bank += std::stof(word);
+        }
+        if (withdraw)
+        {
+            bank -= std::stof(word);
+        }
+        else
+        {
+            withdraw = false;
+            deposit = false;
+        }
+
+    }
+	return bank;
 }
 
 #endif
