@@ -42,7 +42,7 @@ float Solution1::ConvertTemperature(float _value, TemperatureUnits _from, Temper
 			_value = 5 / 9 * (_value - 32) + 273;
 		}
 	}
-	return -1.0f;
+	return _value;
 
 }
 
