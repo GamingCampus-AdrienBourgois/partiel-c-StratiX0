@@ -10,7 +10,7 @@
 
 float Solution2::GetBalance(const std::string& accountName)
 {
-    float bank;
+    float bank = 0.f;
     std::fstream file;
     std::string word, t, q, filename;
     bool deposit, withdraw;
